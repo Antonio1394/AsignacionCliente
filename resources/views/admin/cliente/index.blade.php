@@ -18,7 +18,7 @@
     				</div>
     				<div class="panel-body">
                         <div class="div-btn-new">
-                            <button class="btn btn-info waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/create" data-title="Crear Elemento Policial">
+                            <button class="btn btn-info waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/create" data-title="Crear Cliente">
                                 <i class="fa fa-plus m-r-5"></i>
                                 <span>Nuevo</span>
                             </button>
@@ -41,10 +41,10 @@
                                         <td>{{ $value->direccion }}</td>
                                         <td>{{ $value->telefono }}</td>
                                         <td class="text-center">
-                                            <button class="btn btn-icon waves-effect waves-light btn-primary loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/agents/{{ $value->id }}/edit" data-title="Actualizar Agente">
+                                            <button class="btn btn-icon waves-effect waves-light btn-primary loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/{{ $value->id }}/edit" data-title="Actualizar Cliente">
                                                 <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
-                                            <button class="btn btn-icon waves-effect waves-light btn-danger loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/agents/showdelete/{{ $value->id }}" data-title="Eliminar Agente">
+                                            <button class="btn btn-icon waves-effect waves-light btn-danger loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/{{ $value->id }}" data-title="Eliminar Cliente">
                                                 <i class="fa fa-trash-o" aria-hidden="true"></i>
                                             </button>
                                         </td>

@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Models\Cliente;
-use App\Models\TipoUsuario;
 class ClienteController extends Controller
 {
     /**
@@ -39,7 +38,19 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        
+        try {
+            $cliente= new cliente;
+            $cliente->nombre=$request->nombre;
+            $cliente->apellido=$request->apellido;
+            $cliente->direccion=$request->direccion;
+            $cliente->telefono=$request->telefono;
+            $cliente->save();
+            return redirect()->back()->with('message','Registro creado correctamente.');
+        } catch (Exception $e) {
+            return redirect()->back()->with("error", "No se pudo realizar la acción.". $e->getMessage());
+            echo $e;
+        }
+
     }
 
     /**
@@ -48,9 +59,12 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id)///vista para mensaje de confirmación de borrar registro
     {
-        //
+      if( Cliente::where('id',$id)->count() != 0 )
+        return view('admin.cliente.delete')->with('id',$id);
+      else
+        return "Error";
     }
 
     /**
@@ -61,7 +75,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dataEdit=Cliente::find($id);
+        return view('admin.cliente.edit',compact('dataEdit'));
     }
 
     /**
@@ -73,7 +88,18 @@ class ClienteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $cliente=Cliente::findOrFail($id);
+            $cliente->nombre=$request->nombre;
+            $cliente->apellido=$request->apellido;
+            $cliente->direccion=$request->direccion;
+            $cliente->telefono=$request->telefono;
+            $cliente->save();
+             return redirect()->back()->with('message','Registro Editado correctamente.');
+        } catch (Exception $e) {
+            return redirect()->back()->with("error", "No se pudo realizar la acción.");
+        }
+
     }
 
     /**
@@ -84,6 +110,11 @@ class ClienteController extends Controller
      */
     public function destroy($id)
     {
-        //
+      try {
+            Cliente::findOrFail($id)->delete();
+            return redirect()->back()->with("message", "Registro eliminado correctamente.");
+      } catch (\Exception $e) {
+            return redirect()->back()->with("error", "No se pudo realizar la acción.");
+      }
     }
 }

@@ -11,9 +11,15 @@
                 <li class="@yield('dashboardMenu', 'default')">
                     <a href="{{url('/admin')}}" class="waves-effect @yield('dashboardMenu', 'default')"><i class="ti-home"></i> <span> Inicio </span> </a>
                 </li>
-                    <!-- Menu Usuarios -->
+
+                <!-- Menu Usuarios -->
                 <li class="@yield('dashboardMenu', 'default')">
                     <a href="{{url('/admin/user')}}" class="waves-effect @yield('userMenu', 'default')"><i class="ti-user"></i> <span> Usuarios </span> </a>
+                </li>
+
+                <!-- Menu Clientes -->
+                <li class="@yield('dashboardMenu', 'default')">
+                    <a href="{{url('/admin/cliente')}}" class="waves-effect @yield('userMenu', 'default')"><i class="ti-car"></i> <span> Clientes </span> </a>
                 </li>
 
             </ul>
