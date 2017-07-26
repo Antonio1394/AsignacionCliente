@@ -13,13 +13,18 @@
                 </li>
 
                 <!-- Menu Usuarios -->
-                <li class="@yield('dashboardMenu', 'default')">
+                <li class="@yield('userMenu', 'default')">
                     <a href="{{url('/admin/user')}}" class="waves-effect @yield('userMenu', 'default')"><i class="ti-user"></i> <span> Usuarios </span> </a>
                 </li>
 
                 <!-- Menu Clientes -->
-                <li class="@yield('dashboardMenu', 'default')">
-                    <a href="{{url('/admin/cliente')}}" class="waves-effect @yield('userMenu', 'default')"><i class="ti-car"></i> <span> Clientes </span> </a>
+                <li class="@yield('clienteMenu', 'default')">
+                    <a href="{{url('/admin/cliente')}}" class="waves-effect @yield('clienteMenu', 'default')"><i class="fa fa-male"></i> <span> Clientes </span> </a>
+                </li>
+
+                <!-- Menu Asignacion -->
+                <li class="@yield('asignacionMenu', 'default')">
+                    <a href="{{url('/admin/asignacion')}}" class="waves-effect @yield('asignacionMenu', 'default')"><i class="fa fa-check"></i> <span> Asignaciones </span> </a>
                 </li>
 
             </ul>

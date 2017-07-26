@@ -17,12 +17,6 @@
     					<h3 class="panel-title">Listado de Clientes</h3>
     				</div>
     				<div class="panel-body">
-                        <div class="div-btn-new">
-                            <button class="btn btn-info waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/create" data-title="Crear Cliente">
-                                <i class="fa fa-plus m-r-5"></i>
-                                <span>Nuevo</span>
-                            </button>
-                        </div>
                     <table id="tableData" class="table table-striped table-bordered display responsive no-wrap"  width="100%">
                             <thead>
                                 <tr>
@@ -41,11 +35,11 @@
                                         <td>{{ $value->direccion }}</td>
                                         <td>{{ $value->telefono }}</td>
                                         <td class="text-center">
-                                            <button class="btn btn-icon waves-effect waves-light btn-primary loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/{{ $value->id }}/edit" data-title="Actualizar Cliente">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
+                                            <button class="btn btn-info waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/asignacion/crear/{{ $value->id }}" data-title="Asignar Vendedor">
+                                              <i class="fa fa-plus m-r-5"></i>
                                             </button>
-                                            <button class="btn btn-icon waves-effect waves-light btn-danger loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/cliente/{{ $value->id }}" data-title="Eliminar Cliente">
-                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            <button class="btn btn-icon waves-effect waves-light btn-primary loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/asignacion/crear/{{ $value->id }}" data-title="Actualizar Cliente">
+                                                <i class="fa fa-pencil" aria-hidden="true"></i>
                                             </button>
                                         </td>
                                     </tr>
