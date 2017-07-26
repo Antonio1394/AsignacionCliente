@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
              $this->call(TipoTableSeeder::class);
              $this->call(UserTableSeeder::class);
              factory('App\Models\Cliente', 150)->create();
+             factory('App\User', 10)->create();
 
         Model::reguard();
     }

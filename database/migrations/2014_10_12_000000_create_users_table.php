@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('user')->unique();
             $table->string('password', 60);
             $table->bigInteger('tipo');
+            $table->boolean('estado');
             $table->rememberToken();
             $table->timestamps();
         });
