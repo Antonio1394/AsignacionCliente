@@ -14,7 +14,8 @@ class DatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+             $this->call(TipoTableSeeder::class);
+             factory('App\Models\Cliente', 150)->create();
 
         Model::reguard();
     }
