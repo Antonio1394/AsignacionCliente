@@ -8,8 +8,15 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
+use Illuminate\Http\Request;
+use App\Http\Requests;
+use Auth;
+
 class AuthController extends Controller
 {
+    protected $username     = 'user';
+    protected $redirectTo   = 'admin';
+    protected $loginPath    = '/';
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller
@@ -31,6 +38,16 @@ class AuthController extends Controller
     public function __construct()
     {
         $this->middleware('guest', ['except' => 'getLogout']);
+    }
+
+     public function verifyLogin(Request $request)
+    {
+        // dd($request->dataArray['user']);
+        if(Auth::once(['user' => $request->dataArray['user'], "password" => $request->dataArray['password'] ]) ) {
+            return "ok";
+        } else {
+            return "error";
+        }
     }
 
     /**
