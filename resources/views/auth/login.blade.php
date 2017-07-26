@@ -12,7 +12,7 @@
     <div class=" card-box">
         <div class="panel-heading">
             <h3 class="text-center">
-                <strong class="text-custom">Mineria De Datos</strong>
+                <strong class="text-custom">Aplicación</strong>
             </h3>
         </div>
 
@@ -26,7 +26,7 @@
                     </div>
 
                     <div class="form-group w-icon">
-                        {!! Form::password("password", ["class" => "form-control", "placeholder" => "Contraseña", "id" => 'password', "required" => "required", "data-parsley-required-message" => "Escriba la contraseña", 'data-parsley-minlength' => "8", "data-parsley-minlength-message" => "Escriba 8 o mas caracteres"]) !!}
+                        {!! Form::password("password", ["class" => "form-control", "placeholder" => "Contraseña", "id" => 'password', "required" => "required", "data-parsley-required-message" => "Escriba la contraseña", 'data-parsley-minlength' => "5", "data-parsley-minlength-message" => "Escriba 8 o mas caracteres"]) !!}
                     </div>
 
                     <div class="form-group text-center m-t-40">

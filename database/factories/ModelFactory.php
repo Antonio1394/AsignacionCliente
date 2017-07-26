@@ -29,5 +29,6 @@ $factory->define(App\Models\Cliente::class, function (Faker\Generator $faker) {
         'apellido' => $faker->lastname,
         'direccion' => $faker->address,
         'telefono' => $faker->phoneNumber,
+        'asignado'=>0
     ];
 });

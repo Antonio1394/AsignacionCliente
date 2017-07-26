@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin', 'namespace' => '\Admin', 'middleware' => ['au
     Route::resource('/cliente','ClienteController');
     Route::resource('/asignacion','AsignacionController');
     Route::get('/asignacion/crear/{id}','AsignacionController@crear');
+    Route::get('/asignacion/actualizar/{id}','AsignacionController@actualizar');
 
 
 });

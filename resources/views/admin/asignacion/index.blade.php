@@ -2,7 +2,7 @@
 
 @section('title', 'Administrador')
 
-@section('clienteMenu', 'active')
+@section('asignacionMenu', 'active')
 
 @section('styles')
     {!! Html::style('assets/own/dist/dataTables.bootstrap.min.css') !!}
@@ -24,6 +24,7 @@
                                     <th>Nombre</th>
                                     <th>Dirección</th>
                                     <th>Teléfono</th>
+                                    <th>Estado</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
@@ -34,14 +35,22 @@
                                         <td>{{ $value->nombre }} {{ $value->Apellido }}</td>
                                         <td>{{ $value->direccion }}</td>
                                         <td>{{ $value->telefono }}</td>
-                                        <td class="text-center">
-                                            <button class="btn btn-info waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/asignacion/crear/{{ $value->id }}" data-title="Asignar Vendedor">
-                                              <i class="fa fa-plus m-r-5"></i>
-                                            </button>
-                                            <button class="btn btn-icon waves-effect waves-light btn-primary loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/asignacion/crear/{{ $value->id }}" data-title="Actualizar Cliente">
-                                                <i class="fa fa-pencil" aria-hidden="true"></i>
-                                            </button>
-                                        </td>
+                                        @if($value->asignado==0)
+                                          <td style="color:red">No Asignado</td>
+                                          <td class="text-center">
+                                              <button class="btn btn-info waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/asignacion/crear/{{ $value->id }}" data-title="Asignar Vendedor">
+                                                <i class="fa fa-plus m-r-5"></i>
+                                              </button>
+                                          </td>
+                                        @else
+                                          <td  style="color:blue">Asignado</td>
+                                          <td class="text-center">
+                                              <button class="btn btn-success waves-effect waves-light loadModal" data-toggle="modal" data-target="#modal-maintenances" data-url="/admin/asignacion/actualizar/{{ $value->id }}" data-title="Asignar Vendedor">
+                                                <i class="fa fa-wrench"></i>
+                                              </button>
+                                          </td>
+
+                                        @endif
                                     </tr>
                                 @endforeach
                             </tbody>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cliente;
 use App\User;
 use App\Models\Asignacion;
+
 class AsignacionController extends Controller
 {
     /**
@@ -38,6 +39,19 @@ class AsignacionController extends Controller
         return view('admin.asignacion.create',compact('user','id'));
     }
 
+    public function actualizar($id)
+    {
+        $user=$this->fillCombo(User::all(),'name');
+        $idAs=Asignacion::where('idCliente','=', $id)->get();
+        foreach ($idAs as $key => $value) {
+            $idAsignacion=$value->id;
+        }
+        $dataEdit=Asignacion::find($idAsignacion);
+        return view('admin.asignacion.edit',compact('user','id','dataEdit'));
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -47,12 +61,15 @@ class AsignacionController extends Controller
     public function store(Request $request)
     {
         try {
+            $cliente=Cliente::findOrFail($request->idCliente);
             $time=getdate();
             $asig=new Asignacion;
             $asig->fecha=$time['year'].'-'.$time['mon'].'-'.$time['mday'];
             $asig->idUsuario=$request->idUsuario;
             $asig->idCliente=$request->idCliente;
             $asig->save();
+            $cliente->asignado=1;
+            $cliente->save();
             return redirect()->back()->with('message','Asignación creada correctamente.');
         } catch (Exception $e) {
             return redirect()->back()->with("error", "No se pudo realizar la acción.". $e->getMessage());
@@ -92,7 +109,15 @@ class AsignacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        try {
+            $asig=Asignacion::findOrFail($id);
+            $asig->idUsuario=$request->idUsuario;
+            $asig->save();
+            return redirect()->back()->with('message','Asignación Actualizada correctamente.');
+        } catch (Exception $e) {
+            return redirect()->back()->with("error", "No se pudo realizar la acción.". $e->getMessage());
+        }
+
     }
 
     /**

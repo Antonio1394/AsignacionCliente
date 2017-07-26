@@ -12,5 +12,6 @@ class Cliente extends Model
                          'apellido',
                          'direccion',
                          'telefono',
+                         'asignado'
                         ];
 }
