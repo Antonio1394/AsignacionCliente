@@ -16,6 +16,9 @@
             </h3>
         </div>
 
+
+
+
         <div class="panel-body">
             <div class="signin-form">
                 {!! Form::open(["url" => 'auth/login', "method" => "POST", 'class' => 'form-horizontal m-t-20', 'id' => 'signin-form_id']) !!}
