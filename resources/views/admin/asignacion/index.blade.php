@@ -9,6 +9,10 @@
     {!! Html::style('assets/own/dist/responsive.bootstrap.min.css') !!}
 @endsection
 
+
+
+
+
 @section('content')
         <div class="row">
             <div class="col-lg-12">
