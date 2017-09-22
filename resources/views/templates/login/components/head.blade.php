@@ -6,8 +6,6 @@
     <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
     <meta name="author" content="Coderthemes">
 
-
-
     {!! Html::style('assets/css/bootstrap.min.css') !!}
     {!! Html::style('assets/css/core.css') !!}
     {!! Html::style('assets/css/components.css') !!}
